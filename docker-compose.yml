@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  c_gatewayservice:
+    container_name: "gateway_service"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5050:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    networks:
+      - ecom_network
+
+networks:
+  ecom_network:
+    external: true
